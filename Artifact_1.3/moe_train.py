@@ -175,16 +175,16 @@ def main():
     dataload_type= "multiple" # {single, multiple}
     dataset_name = args.dataset 
     '''mixed datasets'''
-    # multiple_datasets= ["mrpc", "cola", "sst2", "qnli", "qqp", "imdb",
-    #                     "hellaswag", "scitail","sick", "mnli"] # combination of the datasets
+    multiple_datasets= ["mrpc", "cola", "sst2", "qnli", "qqp", "imdb",
+                        "hellaswag", "scitail","sick", "mnli"] # combination of the datasets
     
-    # experts_list= ["mrpc", "cola", "sst2", "qnli", 
-    #                     "rte", "qqp", "imdb","winogrande_l",
-    #                     "hellaswag", "socialiqa", "cosmosqa",
-    #                     "scitail", "csqa", "sick", "cb", "boolq", "mnli"] #combination of experts
+    experts_list= ["mrpc", "cola", "sst2", "qnli", 
+                        "rte", "qqp", "imdb","winogrande_l",
+                        "hellaswag", "socialiqa", "cosmosqa",
+                        "scitail", "csqa", "sick", "cb", "boolq", "mnli"] #combination of experts
     
-    multiple_datasets= ["mrpc", "cola", "sst2"]
-    experts_list= ["mrpc", "cola", "sst2"]
+    # multiple_datasets= ["mrpc", "cola", "sst2","csqa"]
+    # experts_list= ["mrpc", "cola", "sst2"]
 
 
     experts_trainable = False

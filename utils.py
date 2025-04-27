@@ -267,7 +267,25 @@ def load_new_model_for_sequence_classification_from_local_path(config):
     return model
 
 def load_new_model_for_moe_sequence_classification_from_local_path(config):
-    model = AutoModelForSequenceClassification.from_pretrained(config["model_path"], num_labels=5)
+
+    if "socialiqa" in config["dataset_name"] or "sick" in config["dataset_name"] or "cb" in config["dataset_name"] or "mnli" in config["dataset_name"]:
+        model = AutoModelForSequenceClassification.from_pretrained(config["model_path"], num_labels=3)
+    elif config["dataset_name"] == "cosmosqa" or config["dataset_name"] == "hellaswag":
+        model = AutoModelForSequenceClassification.from_pretrained(config["model_path"], num_labels=4)
+    elif config["dataset_name"] == "csqa":
+        model = AutoModelForSequenceClassification.from_pretrained(config["model_path"], num_labels=5)
+    multiple_datasets = config["multiple_datasets"]
+    for dataset in multiple_datasets:
+        if "csqa" in dataset:
+            num_labels = 5
+        elif "cosmosqa" in dataset or "hellaswag" in dataset:
+            num_labels = 4
+        elif "socialiqa" in dataset or "sick" in dataset or "cb" in dataset or "mnli" in dataset:
+            num_labels = 3
+        else:
+            num_labels = 2
+    
+    model = AutoModelForSequenceClassification.from_pretrained(config["model_path"], num_labels=num_labels)
     try:
         model.config.pad_token_id = model.config.eos_token_id[0]
     except:
