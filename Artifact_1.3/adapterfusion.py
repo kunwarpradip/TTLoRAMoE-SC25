@@ -108,9 +108,9 @@ def train_moe_without_ray(config):
     model.train_adapter_fusion(adapter_setup)
     
     if config["dataload_type"]=="single":
-        output_dir = f"./AdapteFusion_Training_Results/{config['dataset_name']}"
+        output_dir = f"./AdapterFusion_Training_Results/{config['dataset_name']}"
     elif config["dataload_type"] == "multiple":
-        output_dir = f"./AdapteFusion_Training_Results/{len(config['multiple_datasets'])}"
+        output_dir = f"./AdapterFusion_Training_Results/{len(config['multiple_datasets'])}"
     training_args = TrainingArguments(
         learning_rate=5e-5,
         num_train_epochs=1,
