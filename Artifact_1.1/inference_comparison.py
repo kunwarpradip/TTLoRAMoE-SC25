@@ -28,7 +28,7 @@ def test_inference(config):
 
     if not torch.cuda.is_available():
         print("Please switch to a GPU machine before running this notebook.")
-    dataset = load_dataset_(config) #load dataset from local directory
+    dataset = load_dataset_(config["dataset_name"], config["dataset_path"]) #load dataset from local directory
     dataset = preprocess_datasets(config["dataset_name"], dataset) #pre-process datasets like changing labels and removing columns
     sub_dataset = dataset["validation"].select(range(args.batchsize*10)) #only process 10 batches
     tokenized = get_tokenizer(config, sub_dataset)
@@ -124,8 +124,8 @@ if __name__ == "__main__":
         
         #model parameters
         "model_name" : "llama3.2-1b",
-        "model_path" : './llama3.2-1b/checkpoints', #provide the model path
-        "tokenizer_path" : './llama3.2-1b/checkpoints', #provide the tokenizer path
+        "model_path" : './llama3.2-1b', #provide the model path
+        "tokenizer_path" : './llama3.2-1b', #provide the tokenizer path
         "dataset_path": './datasets', #provide the dataset path
         "device": device,
         "dataset_name" : args.dataset, 
