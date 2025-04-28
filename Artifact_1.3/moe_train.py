@@ -169,22 +169,21 @@ def train_moe_without_ray(config):
     return results
             
 def main():
-    #changeable model parameter
     model_name = "llama-3.2-1b" 
 
     dataload_type= "multiple" # {single, multiple}
     dataset_name = args.dataset 
     '''mixed datasets'''
-    multiple_datasets= ["mrpc", "cola", "sst2", "qnli", "qqp", "imdb",
-                        "hellaswag", "scitail","sick", "mnli"] # combination of the datasets
+    # multiple_datasets= ["mrpc", "cola", "sst2", "qnli", "qqp", "imdb",
+    #                     "hellaswag", "scitail","sick", "mnli"] # combination of the datasets
     
-    experts_list= ["mrpc", "cola", "sst2", "qnli", 
-                        "rte", "qqp", "imdb","winogrande_l",
-                        "hellaswag", "socialiqa", "cosmosqa",
-                        "scitail", "csqa", "sick", "cb", "boolq", "mnli"] #combination of experts
+    # experts_list= ["mrpc", "cola", "sst2", "qnli", 
+    #                     "rte", "qqp", "imdb","winogrande_l",
+    #                     "hellaswag", "socialiqa", "cosmosqa",
+    #                     "scitail", "csqa", "sick", "cb", "boolq", "mnli"] #combination of experts
     
-    # multiple_datasets= ["mrpc", "cola", "sst2","csqa"]
-    # experts_list= ["mrpc", "cola", "sst2"]
+    multiple_datasets= ["mrpc", "cola", "rte"]
+    experts_list= ["mrpc", "cola", "rte"]
 
 
     experts_trainable = False
@@ -263,8 +262,8 @@ def main():
         #model parameters
         "model_name" : model_name,
         "device": device, 
-        "model_path" : './llama3.2-1b/checkpoints', #provide the model path
-        "tokenizer_path" :'./llama3.2-1b/checkpoints', #provide the tokenizer path
+        "model_path" : './llama3.2-1b', #provide the model path
+        "tokenizer_path" :'./llama3.2-1b', #provide the tokenizer path
         "dataset_path": "./datasets", #provide the dataset path
   
         #changable dataset parameters:

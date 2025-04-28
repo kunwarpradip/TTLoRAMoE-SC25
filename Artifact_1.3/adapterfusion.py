@@ -87,8 +87,8 @@ def train_moe_without_ray(config):
                         "rte", "qqp", "imdb","winogrande_l",
                         "hellaswag", "socialiqa", "cosmosqa",
                         "scitail", "csqa", "sick", "cb", "boolq")
-    # fusion_of=["mrpc", "cola", "qnli", "rte"]
-    # adapter_setup = Fuse("mrpc", "cola", "qnli", "rte")
+    # fusion_of=["mrpc", "cola", "rte"]
+    # adapter_setup = Fuse("mrpc", "cola", "rte")
     model.add_adapter_fusion(adapter_setup)
 
     data = config["dataset_name"]
@@ -161,17 +161,17 @@ def train_moe_without_ray(config):
 def main():
     dataset_name = args.dataset
     model_name = "llama-3.2-1b" # options: roberta-base, llama-3.2-1b, llama-3.2-3b, llama-3.1-8b, llama-3.1-70b, 
-    dataload_type= "multiple" # {single, multiple} 
+    dataload_type= "single" # {single, multiple} 
     multiple_datasets= ["mrpc", "cola", "sst2", "qnli", "qqp", "imdb",
                         "hellaswag", "scitail","sick", "mnli"]
-    # multiple_datasets= ["mrpc", "rte","qnli","cola"]
+    # multiple_datasets= ["mrpc", "rte","cola"]
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     config = {
         #model parameters
         "model_name" : model_name,
         "device": device, 
-        "model_path" : './llama3.2-1b/checkpoints', #provide the model path
-        "tokenizer_path" :'./llama3.2-1b/checkpoints', #provide the tokenizer path
+        "model_path" : './llama3.2-1b', #provide the model path
+        "tokenizer_path" :'./llama3.2-1b', #provide the tokenizer path
         "dataset_path": "./datasets", #provide the dataset path
         "dataload_type": dataload_type,
         "dataset_name": dataset_name,
