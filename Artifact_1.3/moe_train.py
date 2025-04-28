@@ -90,9 +90,9 @@ def train_moe_without_ray(config):
         )
 
     if config['dataload_type'] == "single":
-        dirpath = f".MoE_Checkpoints/single_{config['dataset_name']}"
+        dirpath = f"./MoE_Checkpoints/single_{config['dataset_name']}"
     elif config["dataload_type"] == "multiple":
-        dirpath = f".MoE_Checkpoints/multiple_{len(config['multiple_datasets'])}"
+        dirpath = f"./MoE_Checkpoints/multiple_{len(config['multiple_datasets'])}"
     else:
         raise ValueError("Please provide the correct dataload type")
 
@@ -171,19 +171,19 @@ def train_moe_without_ray(config):
 def main():
     model_name = "llama-3.2-1b" 
 
-    dataload_type= "multiple" # {single, multiple}
+    dataload_type= "single" # {single, multiple}
     dataset_name = args.dataset 
     '''mixed datasets'''
-    # multiple_datasets= ["mrpc", "cola", "sst2", "qnli", "qqp", "imdb",
-    #                     "hellaswag", "scitail","sick", "mnli"] # combination of the datasets
+    multiple_datasets= ["mrpc", "cola", "sst2", "qnli", "qqp", "imdb",
+                        "hellaswag", "scitail","sick", "mnli"] # combination of the datasets
     
-    # experts_list= ["mrpc", "cola", "sst2", "qnli", 
-    #                     "rte", "qqp", "imdb","winogrande_l",
-    #                     "hellaswag", "socialiqa", "cosmosqa",
-    #                     "scitail", "csqa", "sick", "cb", "boolq", "mnli"] #combination of experts
+    experts_list= ["mrpc", "cola", "sst2", "qnli", 
+                        "rte", "qqp", "imdb","winogrande_l",
+                        "hellaswag", "socialiqa", "cosmosqa",
+                        "scitail", "csqa", "sick", "cb", "boolq", "mnli"] #combination of experts
     
-    multiple_datasets= ["mrpc", "cola", "rte"]
-    experts_list= ["mrpc", "cola", "rte"]
+    # multiple_datasets= ["mrpc", "cola", "rte"]
+    # experts_list= ["mrpc", "cola", "rte"]
 
 
     experts_trainable = False
