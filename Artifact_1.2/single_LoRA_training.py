@@ -135,8 +135,8 @@ if __name__ == "__main__":
         "learning_rate": 0.0005,
         #model parameters
         "model_name" : model_name,
-        "model_path" : './llama3.2-1b/checkpoints', #provide the model path
-        "tokenizer_path" :'./llama3.2-1b/checkpoints', #provide the tokenizer path
+        "model_path" : './llama3.2-1b', #provide the model path
+        "tokenizer_path" :'./llama3.2-1b', #provide the tokenizer path
         "dataset_path": "./datasets", #provide the dataset path
         "device": device, 
         "dataset_name" : dataset_name,

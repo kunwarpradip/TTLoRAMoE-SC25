@@ -198,8 +198,8 @@ if __name__ == "__main__":
 
         #model parameters
         "model_name" : model_name,
-        "model_path" : './llama3.2-1b/checkpoints', #provide the model path
-        "tokenizer_path" :'./llama3.2-1b/checkpoints', #provide the tokenizer path
+        "model_path" : './llama3.2-1b', #provide the model path
+        "tokenizer_path" :'./llama3.2-1b', #provide the tokenizer path
         "dataset_path": "./datasets", #provide the dataset path
         "device": device, 
         "core_init_choice": "direct_init", # options: "direct_init", "init_and_decompose"

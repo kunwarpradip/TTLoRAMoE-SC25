@@ -146,8 +146,8 @@ def main():
         #model parameters
         "model_name" : model_name,
         "device": device, 
-        "model_path" : './llama3.2-1b/checkpoints', #provide the model path
-        "tokenizer_path" :'./llama3.2-1b/checkpoints', #provide the tokenizer path
+        "model_path" : './llama3.2-1b', #provide the model path
+        "tokenizer_path" :'./llama3.2-1b', #provide the tokenizer path
         "dataset_path": "./datasets", #provide the dataset path
         "dataset_name": dataset_name, 
         "learning_rate": 1e-4,
