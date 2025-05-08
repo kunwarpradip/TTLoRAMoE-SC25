@@ -110,3 +110,8 @@ First, in `train_moe_without_ray` function, we need to make sure the `model.load
 Then, in `main()` function, we change the `dataload_type` into `single` and pass the dataset name through cli as:
 `python Artifact_1.3/adapterfusion.py --workers 8 --gpus 4 --dataset mrpc`  
 '# for --dataset , options are provided above in the note 
+
+### Experiment 5 to support Contribution 5: 
+#### Training MoE in Mixed Dataset
+
+All the process are same as above as mentioned in Experiment 4, in here we change the `dataload_type` into `multiple` as the option and this loads the mixture of the dataset mentioned in `multiple_datasets` list. And we change the `multiple_datasets` list with the datasets to be combined of the experts present in the `experts_list`.
