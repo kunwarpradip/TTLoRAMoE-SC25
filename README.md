@@ -113,5 +113,12 @@ Then, in `main()` function, we change the `dataload_type` into `single` and pass
 
 ### Experiment 5 to support Contribution 5: 
 #### Training MoE in Mixed Dataset
+##### Running TTLoRA MoE on Mixed Dataset:
+All the process are same as above as mentioned in Experiment 4, in here we just change the `dataload_type` into `multiple` as the option and this loads the mixture of the dataset mentioned in `multiple_datasets` list. And we change the `multiple_datasets` list with the datasets to be combined of the experts present in the `experts_list`. We can also try different combinations of experts and different combinations of `multiple datasets`.
+Then we make sure the experts_list variable consists the list of the pre-trained experts that we want to put together (the ones which are already trained and reside inside the `TTLoRA_Saved_Individual_Expert` folder). Then we can run the code using the cli as:  
+`python Artifact_1.3/moe_train.py --batchsize 16 --epochs 100 --patience 10 --workers 8 --gpus 4 --router llm`  
+'# for --dataset , options are provided above in the note
 
-All the process are same as above as mentioned in Experiment 4, in here we change the `dataload_type` into `multiple` as the option and this loads the mixture of the dataset mentioned in `multiple_datasets` list. And we change the `multiple_datasets` list with the datasets to be combined of the experts present in the `experts_list`.
+##### Running AdapterFusion on Mixed Dataset:
+Similar to experiment 4, in here we just change the `dataload_type` into `multiple` and run the script as `python Artifact_1.3/adapterfusion.py --workers 8 --gpus 4`  
+'# for --dataset , options are provided above in the note
