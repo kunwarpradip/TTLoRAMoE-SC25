@@ -39,7 +39,8 @@ applicable) is:
 `--dataset` [17 options]:
 `mrpc, cola, sst2, rte, cb, sick, boolq, csqa, winogrande_l, scitail, imdb, cosmosqa, socialiqa, hellaswag, qnli, qqp, mnli`
 ##### Hardware:
-We ran all the experiments on either 40GB or 80GB NVIDIA A100 GPUs except for Experiment 1. The difference in running between the two is just the batch sizes to avoid \textit{CUDA memory allocation error}. We used 32 batchsize for most of the data for 40GB and 80GB. For specific datasets like \textit{imdb, boolq} we used variable batch sizes like 4 or  based on GPU availability.
+We ran all the experiments on either 40GB or 80GB NVIDIA A100 GPUs except for Experiment 1. The difference in running between the two is just the batch sizes to avoid CUDA memory allocation error. We used 32 batchsize for most of the data for 40GB and 80GB. For specific datasets like imdb, boolq we used variable batch sizes like 4 or something else based on GPU availability.
+
 Before running any experiments that are described below, the following setup should be completed step by step:
 1. Allocate the GPU
 2. Create the virtual environment and install required packages as mentioned above
